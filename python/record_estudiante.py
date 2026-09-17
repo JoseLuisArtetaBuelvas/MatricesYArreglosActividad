@@ -4,7 +4,7 @@ Python no tiene la palabra clave struct. Su equivalente a un record son las
 dataclasses (mutables o congeladas) y las NamedTuple (siempre inmutables).
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from typing import NamedTuple
 
 
@@ -48,11 +48,15 @@ def cambiar_promedio(estudiantes: list, nombre: str, nuevo_promedio: float) -> b
 
 
 def crear_copia_con_ajuste(estudiantes: list, puntos: float) -> list:
-    """Retorna una nueva lista con el promedio de cada estudiante ajustado."""
-    copia = estudiantes.copy()
-    for estudiante in copia:
-        estudiante.promedio = min(5.0, estudiante.promedio + puntos)
-    return copia
+    """Retorna una nueva lista con el promedio de cada estudiante ajustado.
+
+    Se usa replace() para construir instancias nuevas: list.copy() copiaria la
+    lista pero no los records, y modificarlos alteraria tambien el original.
+    """
+    return [
+        replace(estudiante, promedio=min(5.0, estudiante.promedio + puntos))
+        for estudiante in estudiantes
+    ]
 
 
 def demostrar_inmutabilidad() -> None:
