@@ -17,6 +17,9 @@ const int MAXIMO_ERRORES = 6;
 const int MAX_PARTIDAS = 10;
 const int MAX_JUGADORES = 10;
 const int LARGO_MAXIMO_PALABRA = 12;
+// Un jugador puede intentar mas letras distintas que el largo de la palabra,
+// porque tambien se registran las fallidas: el tope real es el alfabeto.
+const int LETRAS_ALFABETO = 26;
 
 // Record: solo agrupa datos relacionados, sin comportamiento propio.
 struct Palabra {
@@ -137,7 +140,7 @@ RegistroPartida jugarRonda(const Jugador& jugador) {
     char palabraOculta[LARGO_MAXIMO_PALABRA + 1];
     ocultarPalabra(palabraOculta, longitud);
 
-    char letrasAdivinadas[LARGO_MAXIMO_PALABRA];
+    char letrasAdivinadas[LETRAS_ALFABETO];
     int cantidadAdivinadas = 0;
     int errores = 0;
 
