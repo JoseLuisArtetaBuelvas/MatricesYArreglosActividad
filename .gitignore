@@ -1,0 +1,32 @@
+### C / C++ ###
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.gch
+build/
+bin/
+cmake-build-*/
+
+### Python ###
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+### IDEs ###
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+
+### Sistema operativo ###
+.DS_Store
+Thumbs.db
+
+### Notas de estudio (uso personal, no se suben al repo remoto) ###
+notas-estudio/
