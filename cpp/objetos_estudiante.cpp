@@ -24,7 +24,7 @@ public:
     // El setter rechaza promedios fuera de la escala 0.0 - 5.0. Un struct no puede
     // impedir que alguien escriba directamente un valor invalido.
     bool setPromedio(double nuevoPromedio) {
-        if (nuevoPromedio < 0.0 || nuevoPromedio >= 5.0) {
+        if (nuevoPromedio < 0.0 || nuevoPromedio > 5.0) {
             return false;
         }
         promedio = nuevoPromedio;
